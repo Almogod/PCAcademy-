@@ -8,9 +8,7 @@
   "preview": "astro preview",
   "check": "npx astro check --js-only",
   "test:run": "vitest run"
-}
-
-
+},
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/cloudflare": "12.5.5",
