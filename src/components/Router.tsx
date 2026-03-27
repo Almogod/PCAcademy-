@@ -57,9 +57,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-], {
-  basename: import.meta.env.BASE_NAME,
-});
+]);
 
 export default function AppRouter() {
   return (

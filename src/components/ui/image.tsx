@@ -1,6 +1,5 @@
 import { forwardRef, type ImgHTMLAttributes } from 'react'
 import { cn } from '@/lib/utils';
-import './image.css'
 
 export type ImageProps = ImgHTMLAttributes<HTMLImageElement>
 

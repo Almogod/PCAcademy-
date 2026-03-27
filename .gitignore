@@ -1,10 +1,21 @@
-# dependencies
+# Dependencies
 node_modules/
 
-# build output
+# Build output
 dist/
+.astro/
 
-# IDE / Editor files
+# Environment files
+.env
+.env.production
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
 .vscode/
 .idea/
 *.suo
@@ -13,24 +24,6 @@ dist/
 *.sln
 *.sw?
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# system files
+# OS generated files
 .DS_Store
 Thumbs.db
-
-# Astro
-.astro/
-
-# Wix
-.template-config.json
-photo-theme.txt
-wix.config.json
-
-# Environment variables
-.env
-.env.local
-.env.*

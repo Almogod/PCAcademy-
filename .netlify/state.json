@@ -1,0 +1,20 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Guwahati",
+			"country": {
+				"code": "IN",
+				"name": "India"
+			},
+			"subdivision": {
+				"code": "AS",
+				"name": "Assam"
+			},
+			"timezone": "Asia/Kolkata",
+			"latitude": 26.1885,
+			"longitude": 91.7392,
+			"postalCode": "781031"
+		},
+		"timestamp": 1774605942130
+	}
+}

@@ -1,19 +1,32 @@
 ---
-import { Head } from "@/components/Head";
-import AppRouter from "@/components/Router";
-import "@/styles/global.css";
+import { Head } from '../components/Head';
+import AppRouter from '../components/Router';
 
+export function getStaticPaths() {
+  return [
+    { params: { slug: undefined } },
+    { params: { slug: 'concepts' } },
+    { params: { slug: 'mathematical-breakdown' } },
+    { params: { slug: 'calculators' } },
+    { params: { slug: 'visualizations' } },
+    { params: { slug: 'examples' } },
+    { params: { slug: 'references' } },
+  ];
+}
 ---
 
-<html lang="en" class="w-full h-full">
+<html lang='en' class='w-full h-full'>
   <head>
     <Head />
     <title>PCAcademy</title>
-    <meta name="description" content="PCAcademy - Learn Principal Component Analysis" />
+    <meta name='description' content='PCAcademy - Learn Principal Component Analysis' />
+    <style is:global>
+      @import "../styles/global.css";
+    </style>
   </head>
-  <body class="w-full h-full">
-    <div id="root" class="w-full h-full">
-      <AppRouter client:only="react" />
+  <body class='w-full h-full'>
+    <div id='root' class='w-full h-full'>
+      <AppRouter client:only='react' />
     </div>
   </body>
 </html>

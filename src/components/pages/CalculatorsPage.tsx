@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { BaseCrudService } from '@/integrations';
+import { BaseCrudService } from '@/lib/mock-service';
 import { InteractiveCalculators } from '@/entities';
 import { Image } from '@/components/ui/image';
 import CovarianceCalculator from '@/components/calculators/CovarianceCalculator';
