@@ -17,7 +17,6 @@ export interface InteractiveCalculators {
   shortDescription?: string;
   /** @wixFieldType text */
   toolSlug?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   thumbnailImage?: string;
   /** @wixFieldType text */
   conceptsCovered?: string;
@@ -38,7 +37,6 @@ export interface PCAConcepts {
   shortDescription?: string;
   /** @wixFieldType text */
   detailedExplanation?: string;
-  /** @wixFieldType url */
   visualAssetUrl?: string;
   /** @wixFieldType number */
   sequenceNumber?: number;
@@ -59,7 +57,6 @@ export interface RealWorldExamples {
   domainField?: string;
   /** @wixFieldType text */
   caseStudyDescription?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   illustrationImage?: string;
   /** @wixFieldType text */
   keyTakeaways?: string;
@@ -78,7 +75,6 @@ export interface ReferenceMaterials {
   resourceTitle?: string;
   /** @wixFieldType text */
   resourceType?: string;
-  /** @wixFieldType url */
   resourceLink?: string;
   /** @wixFieldType text */
   authorSource?: string;
@@ -101,9 +97,7 @@ export interface VisualDemonstrations {
   instructions?: string;
   /** @wixFieldType text */
   demoType?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   previewImage?: string;
-  /** @wixFieldType url */
   demoUrl?: string;
   /** @wixFieldType text */
   complexityLevel?: string;

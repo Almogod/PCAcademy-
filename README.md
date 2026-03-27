@@ -1,6 +1,6 @@
 # PCAcademy
 
-This is the PCAcademy website built with Astro and Wix.
+This is the PCAcademy website built with Astro and React.
 
 ## Getting Started
 

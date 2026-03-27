@@ -1,5 +1,3 @@
-import type { PageMetadata } from "@wix/astro-pages";
-
 /// <reference types="astro/client" />
 /// <reference path="../.astro/types.d.ts" />
 
@@ -21,9 +19,9 @@ declare global {
 
 declare module "react-router-dom" {
   export interface IndexRouteObject {
-    routeMetadata?: PageMetadata;
+    routeMetadata?: any;
   }
   export interface NonIndexRouteObject {
-    routeMetadata?: PageMetadata;
+    routeMetadata?: any;
   }
 }
