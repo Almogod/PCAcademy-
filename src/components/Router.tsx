@@ -55,9 +55,9 @@ const router = createBrowserRouter([
         path: "*",
         element: <Navigate to="/" replace />,
       },
-    ],
-  },
-]);
+], {
+  basename: "/PCAcademy-",
+});
 
 export default function AppRouter() {
   return (
