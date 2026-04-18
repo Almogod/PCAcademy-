@@ -1,4 +1,4 @@
-# PCAcademy
+   # PCAcademy
 
 PCAcademy is an educational web platform built with **Astro** and **React**, designed to deliver structured learning content with a fast, modern web experience.
 
