@@ -22,9 +22,9 @@ PCAcademy is an educational web platform built with **Astro** and **React**, des
    ```
 
 2. **Install dependencies:**
-   ``bash
+   ```bash
    npm install
-   ``
+   ```
 
 3. **Start the development server:**
    ```bash
