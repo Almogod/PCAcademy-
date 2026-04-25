@@ -10,7 +10,6 @@ export default function Header() {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services' },
     { path: '/concepts', label: 'Concepts' },
     { path: '/mathematical-breakdown', label: 'Mathematics' },
     { path: '/calculators', label: 'Calculators' },

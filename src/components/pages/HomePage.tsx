@@ -2,7 +2,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Calculator, BookOpen, Eye, Lightbulb, FileText, ChevronDown, Grid, Activity, Layers, MoveRight } from 'lucide-react';
+import { ArrowRight, Calculator, BookOpen, Eye, Lightbulb, FileText, ChevronDown, Grid, Activity, Layers, MoveRight, CheckCircle2, Zap, GraduationCap } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
@@ -187,6 +187,44 @@ const ModuleCard = ({ item, index }: { item: ModuleItem; index: number }) => {
   );
 };
 
+const ServiceCard = ({ icon: Icon, title, description, features, link, color }: { 
+  icon: any, 
+  title: string, 
+  description: string, 
+  features: string[],
+  link: string,
+  color: string
+}) => (
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="group bg-white border border-grey200 p-8 rounded-sm hover:shadow-2xl transition-all duration-500 flex flex-col h-full"
+  >
+    <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-6 transition-colors duration-500 ${color}`}>
+      <Icon className="w-7 h-7 text-white" />
+    </div>
+    <h3 className="font-heading text-2xl text-primary mb-4 group-hover:text-accent-link transition-colors">{title}</h3>
+    <p className="font-paragraph text-grey600 mb-8 leading-relaxed">{description}</p>
+    
+    <ul className="space-y-3 mb-10 mt-auto">
+      {features.map((feature, idx) => (
+        <li key={idx} className="flex items-start gap-3 text-sm text-grey500">
+          <CheckCircle2 className="w-4 h-4 text-accent-link shrink-0 mt-0.5" />
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+    
+    <Link 
+      to={link} 
+      className="inline-flex items-center text-primary font-medium group-hover:text-accent-link transition-colors"
+    >
+      Explore {title} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+    </Link>
+  </motion.div>
+);
+
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -197,6 +235,61 @@ export default function HomePage() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.1], [1, 0.95]);
   const heroY = useTransform(scrollYProgress, [0, 0.1], [0, 50]);
+
+  const services = [
+    {
+      icon: BookOpen,
+      title: "Comprehensive Learning",
+      description: "Dive deep into PCA with structured modules designed for students. From intuition to advanced theory, we cover it all.",
+      features: [
+        "Step-by-step conceptual guides",
+        "Mathematical derivations simplified",
+        "Interactive proof explorations",
+        "Self-assessment quizzes"
+      ],
+      link: "/concepts",
+      color: "bg-blue-600"
+    },
+    {
+      icon: Calculator,
+      title: "Integrated PCA Calculator",
+      description: "Compute covariance matrices, eigenvalues, and principal components instantly with our powerful, transparent calculator.",
+      features: [
+        "Real-time step-by-step calculations",
+        "Custom dataset upload support",
+        "Matrix visualization tools",
+        "Export results to CSV/JSON"
+      ],
+      link: "/calculators",
+      color: "bg-purple-600"
+    },
+    {
+      icon: FileText,
+      title: "Expert Cheat Sheets",
+      description: "Quick reference materials and condensed notes to help you master PCA concepts and formulas for exams or research.",
+      features: [
+        "High-resolution PDF downloads",
+        "Key formula summaries",
+        "Algorithm workflow diagrams",
+        "Common pitfalls & tips"
+      ],
+      link: "/references",
+      color: "bg-emerald-600"
+    },
+    {
+      icon: Activity,
+      title: "Real-World Simulations",
+      description: "Experience PCA in action through interactive simulations. Visualize how dimensionality reduction works on real datasets.",
+      features: [
+        "3D point cloud projections",
+        "Image compression demos",
+        "Feature extraction simulations",
+        "Dynamic variance plots"
+      ],
+      link: "/visualizations",
+      color: "bg-amber-600"
+    }
+  ];
 
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground selection:bg-grey200 selection:text-black overflow-clip">
@@ -326,78 +419,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- INTEGRATED SERVICES SECTION --- */}
-      <section className="relative w-full py-32 bg-white">
-        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="mb-20">
-            <SectionHeading number="02" title="Integrated Services" />
-            <p className="mt-6 text-xl text-grey600 max-w-3xl">
-              A comprehensive educational ecosystem designed for students to master Principal Component Analysis through four core pillars of learning.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: BookOpen,
-                title: "In-Depth Learning",
-                desc: "Detailed educational content covering PCA from conceptual foundations to advanced mathematical theory.",
-                link: "/concepts",
-                tag: "LEARN"
-              },
-              {
-                icon: Activity,
-                title: "PCA Calculator",
-                desc: "Integrated, step-by-step calculator for covariance matrices, eigenvalues, and full PCA transformations.",
-                link: "/calculators",
-                tag: "COMPUTE"
-              },
-              {
-                icon: FileText,
-                title: "Cheat Sheets",
-                desc: "High-quality reference materials and condensed notes for quick review of key PCA formulas and concepts.",
-                link: "/references",
-                tag: "REFERENCE"
-              },
-              {
-                icon: Layers,
-                title: "Real-World Simulations",
-                desc: "Dynamic simulations and applications showing PCA in action across various domains and industries.",
-                link: "/visualizations",
-                tag: "VISUALIZE"
-              }
-            ].map((service, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group p-8 bg-grey50 border border-grey200 rounded-sm hover:bg-white hover:shadow-xl transition-all duration-300"
-              >
-                <div className="w-12 h-12 bg-primary text-white flex items-center justify-center mb-6 rounded-sm group-hover:scale-110 transition-transform">
-                  <service.icon className="w-6 h-6" />
-                </div>
-                <span className="text-[10px] font-mono text-accent-link tracking-[0.2em] mb-4 block uppercase font-bold">{service.tag}</span>
-                <h3 className="font-heading text-xl font-bold text-primary mb-4">{service.title}</h3>
-                <p className="text-grey600 text-sm leading-relaxed mb-8">{service.desc}</p>
-                <Link to={service.link} className="inline-flex items-center text-sm font-medium text-primary hover:text-accent-link transition-colors">
-                  Get Started <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-          
-          <div className="mt-16 text-center">
-             <Link 
-               to="/services" 
-               className="inline-flex items-center gap-2 text-grey500 hover:text-primary transition-colors font-mono text-xs uppercase tracking-widest"
-             >
-               View All Service Details <MoveRight className="w-4 h-4" />
-             </Link>
-          </div>
-        </div>
-      </section>
 
       {/* --- MODULES GRID (Bento / Masonry Style) --- */}
       <section className="relative w-full py-32 bg-white">
@@ -509,6 +531,23 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- SERVICES GRID SECTION (AT THE BOTTOM) --- */}
+      <section className="py-32 bg-white">
+        <div className="max-w-[120rem] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="mb-20">
+            <SectionHeading number="05" title="Our Educational Services" />
+            <p className="mt-6 text-xl text-grey600 max-w-3xl">
+              PCAcademy provides a complete ecosystem for mastering Principal Component Analysis. Our integrated tools and resources are crafted specifically for students to learn PCA in detail.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard key={index} {...service} />
+            ))}
           </div>
         </div>
       </section>

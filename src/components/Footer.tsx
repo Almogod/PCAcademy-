@@ -24,12 +24,6 @@ export default function Footer() {
             </h3>
             <nav className="flex flex-col gap-3">
               <Link 
-                to="/services" 
-                className="font-paragraph text-base text-foreground hover:text-accent-link transition-colors font-medium"
-              >
-                Our Services
-              </Link>
-              <Link 
                 to="/concepts" 
                 className="font-paragraph text-base text-foreground hover:text-accent-link transition-colors"
               >
