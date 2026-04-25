@@ -326,11 +326,84 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* --- INTEGRATED SERVICES SECTION --- */}
+      <section className="relative w-full py-32 bg-white">
+        <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="mb-20">
+            <SectionHeading number="02" title="Integrated Services" />
+            <p className="mt-6 text-xl text-grey600 max-w-3xl">
+              A comprehensive educational ecosystem designed for students to master Principal Component Analysis through four core pillars of learning.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: BookOpen,
+                title: "In-Depth Learning",
+                desc: "Detailed educational content covering PCA from conceptual foundations to advanced mathematical theory.",
+                link: "/concepts",
+                tag: "LEARN"
+              },
+              {
+                icon: Activity,
+                title: "PCA Calculator",
+                desc: "Integrated, step-by-step calculator for covariance matrices, eigenvalues, and full PCA transformations.",
+                link: "/calculators",
+                tag: "COMPUTE"
+              },
+              {
+                icon: FileText,
+                title: "Cheat Sheets",
+                desc: "High-quality reference materials and condensed notes for quick review of key PCA formulas and concepts.",
+                link: "/references",
+                tag: "REFERENCE"
+              },
+              {
+                icon: Layers,
+                title: "Real-World Simulations",
+                desc: "Dynamic simulations and applications showing PCA in action across various domains and industries.",
+                link: "/visualizations",
+                tag: "VISUALIZE"
+              }
+            ].map((service, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group p-8 bg-grey50 border border-grey200 rounded-sm hover:bg-white hover:shadow-xl transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-primary text-white flex items-center justify-center mb-6 rounded-sm group-hover:scale-110 transition-transform">
+                  <service.icon className="w-6 h-6" />
+                </div>
+                <span className="text-[10px] font-mono text-accent-link tracking-[0.2em] mb-4 block uppercase font-bold">{service.tag}</span>
+                <h3 className="font-heading text-xl font-bold text-primary mb-4">{service.title}</h3>
+                <p className="text-grey600 text-sm leading-relaxed mb-8">{service.desc}</p>
+                <Link to={service.link} className="inline-flex items-center text-sm font-medium text-primary hover:text-accent-link transition-colors">
+                  Get Started <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+             <Link 
+               to="/services" 
+               className="inline-flex items-center gap-2 text-grey500 hover:text-primary transition-colors font-mono text-xs uppercase tracking-widest"
+             >
+               View All Service Details <MoveRight className="w-4 h-4" />
+             </Link>
+          </div>
+        </div>
+      </section>
+
       {/* --- MODULES GRID (Bento / Masonry Style) --- */}
       <section className="relative w-full py-32 bg-white">
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-16">
           <div className="mb-24 max-w-3xl">
-            <SectionHeading number="02" title="Curriculum Modules" />
+            <SectionHeading number="03" title="Curriculum Modules" />
             <p className="mt-6 text-xl text-grey600">
               A structured approach to mastering PCA. From theory to application, explore our comprehensive learning modules.
             </p>
@@ -388,7 +461,7 @@ export default function HomePage() {
         <div className="w-full max-w-[120rem] mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <SectionHeading number="03" title="Academic Resources" />
+              <SectionHeading number="04" title="Academic Resources" />
               <p className="mt-6 text-lg text-grey600 mb-8 leading-relaxed">
                 We provide a curated collection of reference materials for students and educators. 
                 Download cheat sheets, access raw datasets for practice, and explore seminal papers on Principal Component Analysis.
