@@ -58,7 +58,6 @@ const router = createBrowserRouter([
     ],
   },
 ], {
-  basename: "/PCAcademy-",
 });
 
 export default function AppRouter() {
